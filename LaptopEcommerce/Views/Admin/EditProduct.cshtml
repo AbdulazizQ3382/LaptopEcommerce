@@ -1,0 +1,52 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Page"] = "Admin";
+}
+
+@model LaptopEcommerce.Models.Product
+
+    <div class="container">
+        <form method="post" asp-action="EditProduct">
+            <input type="hidden" asp-for="ID" />
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="put product name here" name="Name">
+                <span asp-validation-for="Name" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Details" class="form-label"></label>
+                <textarea asp-for="Details" class="form-control" name="Details"></textarea>
+                <span asp-validation-for="Details" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Category" class="form-label"></label>
+                <select asp-for="Category" class="form-control" name="Category">
+                    <option value="1x2">1 x 2</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Desktop">Desktop</option>
+                </select>
+                <span asp-validation-for="Category" class="text text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Prize" class="form-label"></label>
+                <input asp-for="Prize" type="Number" class="form-control" id="exampleFormControlInput2" placeholder="100.0" name="Prize">
+                <span asp-validation-for="Prize" class="text text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Items" class="form-label"></label>
+                <input asp-for="Items" type="Number" class="form-control" id="exampleFormControlInput3" placeholder="100.0" name="Items">
+                <span asp-validation-for="Items" class="text text-danger"></span>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Edit</button>
+            <a class="btn btn-dark" asp-action="Index">Cancel</a>
+        </form>
+        </div>
+        @section Scripts {
+            @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+        }

@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Page"] = "Admin";
+}
+
+@model IEnumerable<LaptopEcommerce.Models.Customer>;
+
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Customer's id</th>
+                    <th scope="col">Customer's name</th>
+                    <th scope="col">loction</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.ID</th>
+                        <td>@item.Name</td>
+                        <td>@item.Location</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
